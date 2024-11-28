@@ -1,12 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Build'){
-      steps {
-        echo 'Building'
-        bat 'node app.js'
-      }
-    }
+    // stage('Build'){
+    //   steps {
+    //     echo 'Building'
+    //     bat 'node app.js'
+    //   }
+    // }
     stage ('Check for existence of index.html') {
       steps {
           script {
