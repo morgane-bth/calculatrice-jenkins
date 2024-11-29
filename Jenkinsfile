@@ -24,7 +24,7 @@ pipeline {
     }
 
     stage ('Déployer en Test'){
-      bat 'docker run -d -p 4001:4000 -e MESSAGE="Environnement de Test" --name image-calcul-test '
+      bat 'docker run -d -p 4001:4000 -e MESSAGE="Environnement de Test" --name image-calcul-test image-calcul'
     }
 
     stage ('Exécution des Tests Selenium') {
@@ -32,7 +32,8 @@ pipeline {
               script {
                   if (fileExists('test_calculatrice.js')) {
                       echo "Fichier test_calculatrice.js trouvé!"
-                      start "http-server"
+                      sh "npx http-server &"
+                      sh "node test_calculatrice.js"
                   }
               }
           }
