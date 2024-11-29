@@ -32,8 +32,8 @@ pipeline {
               script {
                   if (fileExists('test_calculatrice.js')) {
                       echo "Fichier test_calculatrice.js trouvé!"
-                      sh "npx http-server &"
-                      sh "node test_calculatrice.js"
+                      sh 'npx http-server &'
+                      sh 'node test_calculatrice.js'
                   }
               }
           }
